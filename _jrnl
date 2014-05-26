@@ -12,12 +12,20 @@ _arguments -s -S \
   "-n+[Shows the last n entries matching the filter]:count:" \
   "--short[Show only titles or line containing the search tags]" \
   "--tags[Returns a list of all tags and number of occurences]" \
-  "--export+[Export your journal to Markdown, JSON or Text]:type:" \
+  "--export+[Export your journal to Markdown, JSON or Text]:type:(markdown json text)" \
   "-o+[The output of the file can be provided when using with --export]:file:" \
   "--encrypt[Encrypts your existing journal with a new password]" \
   "--decrypt[Decrypts your journal and stores it in plain text]" \
   "--edit[Opens your editor to edit the selected entries]" \
+  ":[Tag search]:->tags" \
   && return 0
 
+case $state in
+  (tags)
+    local taglist
+    taglist=(${(f)"$(jrnl --tags | cut -d: -f1 | tr -d ' ')"})
+    compadd $taglist
+    ;;
+esac
 
 # vim: ft=zsh

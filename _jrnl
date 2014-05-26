@@ -1,0 +1,47 @@
+#compdef jrnl
+
+typeset -A opt_args
+local context state line
+
+
+#usage: jrnl [-h] [-v] [-ls] [-from DATE] [-until DATE] [-and] [-starred]
+#            [-n [N]] [--short] [--tags] [--export TYPE] [-o OUTPUT]
+#            [--encrypt [FILENAME]] [--decrypt [FILENAME]] [--edit]
+#            [[...]]
+#
+#optional arguments:
+#  -h, --help            show this help message and exit
+#  -v, --version         prints version information and exits
+#  -ls                   displays accessible journals
+#
+#Composing:
+#  To write an entry simply write it on the command line, e.g. "jrnl
+#  yesterday at 1pm: Went to the gym."
+#
+#  
+#
+#Reading:
+#  Specifying either of these parameters will display posts of your journal
+#
+#  -from DATE            View entries after this date
+#  -until DATE, -to DATE
+#                        View entries before this date
+#  -and                  Filter by tags using AND (default: OR)
+#  -starred              Show only starred entries
+#  -n [N]                Shows the last n entries matching the filter. '-n 3'
+#                        and '-3' have the same effect.
+#
+#Export / Import:
+#  Options for transmogrifying your journal
+#
+#  --short               Show only titles or line containing the search tags
+#  --tags                Returns a list of all tags and number of occurences
+#  --export TYPE         Export your journal to Markdown, JSON or Text
+#  -o OUTPUT             The output of the file can be provided when using with
+#                        --export
+#  --encrypt [FILENAME]  Encrypts your existing journal with a new password
+#  --decrypt [FILENAME]  Decrypts your journal and stores it in plain text
+#  --edit                Opens your editor to edit the selected entries.
+
+
+# vim: ft=zsh

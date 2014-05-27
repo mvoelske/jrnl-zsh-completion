@@ -17,7 +17,7 @@ _arguments -s -S \
   "--encrypt[Encrypts your existing journal with a new password]" \
   "--decrypt[Decrypts your journal and stores it in plain text]" \
   "--edit[Opens your editor to edit the selected entries]" \
-  ":[Tag search]:->tags" \
+  "*:[Tag search]:->tags" \
   && return 0
 
 case $state in
